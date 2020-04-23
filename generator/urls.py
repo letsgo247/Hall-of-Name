@@ -3,17 +3,17 @@ from django.contrib import admin
 from . import views
 
 from django.contrib.sitemaps.views import sitemap
-# from .sitemaps import StaticViewSitemap
+from .sitemaps import StaticViewSitemap
 
 
 app_name = 'generator'
 
-# sitemaps = {
-#     'static': StaticViewSitemap,
-# }
+sitemaps = {
+    'static': StaticViewSitemap,
+}
 
 urlpatterns = [
     url(r'^$', views.index, name = 'index'),
     url(r'^generate.+$', views.generate, name = 'generate'),
-    # url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap')
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap')
 ]
